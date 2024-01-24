@@ -8,7 +8,7 @@ const App = () => {
 
   const addNewTask = (task) => {
     const toDo = {
-      id: Math.floor(Math.random() * 100),
+      id: Math.floor(Math.random() * 10000),
       task: task,
     };
 
@@ -16,16 +16,30 @@ const App = () => {
     console.log("New task added", task);
   };
 
+  const handleDeleteTask = (id) => {
+    console.log("deleting task with id", id);
+    setTasks(tasks.filter((task) => task.id !== id));
+  };
+  console.log(tasks);
   return (
-    <div className="flex justify-center mt-10">
-      <div>
-        <ToDoForm handleAddNewTask={addNewTask} />
+    <>
+      <div className="flex justify-center">
+        <div className="flex justify-center items-center mt-10 w-2/4 ">
+          <div>
+            <ToDoForm handleAddNewTask={addNewTask} />
 
-        {tasks.map((task) => (
-          <ToDo key={task.id} task={task.task} />
-        ))}
+            {tasks.map((task) => (
+              <ToDo
+                key={task.id}
+                id={task.id}
+                task={task.task}
+                onDeleteTask={handleDeleteTask}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
