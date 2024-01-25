@@ -5,11 +5,13 @@ import ToDoForm from "./ToDoForm";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
+  const [completedTask, setCompletedTask] = useState([]);
 
   const addNewTask = (task) => {
     const toDo = {
       id: Math.floor(Math.random() * 10000),
       task: task,
+      completed: false,
     };
 
     setTasks([toDo, ...tasks]);
@@ -19,6 +21,10 @@ const App = () => {
   const handleDeleteTask = (id) => {
     console.log("deleting task with id", id);
     setTasks(tasks.filter((task) => task.id !== id));
+  };
+
+  const handleIsComplete = (completed) => {
+    console.log("task" + completed + "completed");
   };
   console.log(tasks);
   return (
@@ -33,7 +39,9 @@ const App = () => {
                 key={task.id}
                 id={task.id}
                 task={task.task}
+                completed={task.completed}
                 onDeleteTask={handleDeleteTask}
+                onComplete={handleIsComplete}
               />
             ))}
           </div>
