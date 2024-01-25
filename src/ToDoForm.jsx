@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoMdAdd } from "react-icons/io";
 
 const ToDoForm = ({ handleAddNewTask }) => {
   const [task, setTask] = useState("");
@@ -21,8 +22,9 @@ const ToDoForm = ({ handleAddNewTask }) => {
           value={task}
           placeholder="Enter new task"
         />
-        <button className="border-black  border-2 rounded p-1 font-bold">
+        <button className="flex items-center border-black  border-2 rounded p-1 font-bold">
           Add task
+          <IoMdAdd />
         </button>
       </form>
     </div>

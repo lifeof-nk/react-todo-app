@@ -1,5 +1,6 @@
 import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { IoMdDoneAll } from "react-icons/io";
 
 const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
   return (
@@ -11,7 +12,7 @@ const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
             onComplete(id, completed);
           }}
         >
-          Done
+          <IoMdDoneAll />
         </button>
         <button
           className="ml-6"
