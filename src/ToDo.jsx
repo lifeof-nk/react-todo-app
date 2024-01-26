@@ -6,8 +6,9 @@ const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
   return (
     <div className="flex p-1 border-2 mt-2 justify-between ">
       <div>{task}</div>
-      <div>
+      <div className="flex items-center">
         <button
+          className="ml-5"
           onClick={() => {
             onComplete(id, completed);
           }}
@@ -15,7 +16,7 @@ const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
           <IoMdDoneAll />
         </button>
         <button
-          className="ml-6"
+          className="ml-5"
           onClick={() => {
             onDeleteTask(id);
           }}

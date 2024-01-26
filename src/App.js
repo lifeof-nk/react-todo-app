@@ -5,7 +5,6 @@ import ToDoForm from "./ToDoForm";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
-  const [completedTask, setCompletedTask] = useState([]);
 
   const addNewTask = (task) => {
     const toDo = {
@@ -24,7 +23,17 @@ const App = () => {
   };
 
   const handleIsComplete = (completed, id) => {
-    console.log("task" + completed + "completed");
+    setTasks(
+      tasks.map((task) => {
+        if (task.id === id) {
+          return { ...task, completed: !completed };
+        } else {
+          return task;
+        }
+      })
+    );
+
+    // console.log(tasks);
   };
   console.log(tasks);
   return (
