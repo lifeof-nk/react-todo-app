@@ -23,7 +23,7 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const handleIsComplete = (completed) => {
+  const handleIsComplete = (completed, id) => {
     console.log("task" + completed + "completed");
   };
   console.log(tasks);
