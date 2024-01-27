@@ -14,7 +14,7 @@ const App = () => {
     };
 
     setTasks([toDo, ...tasks]);
-    console.log("New task added", task);
+    console.log("New task added, ", task);
   };
 
   const handleDeleteTask = (id) => {
@@ -22,7 +22,7 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const handleIsComplete = (completed, id) => {
+  const handleIsComplete = (id, completed) => {
     setTasks(
       tasks.map((task) => {
         if (task.id === id) {
@@ -32,10 +32,8 @@ const App = () => {
         }
       })
     );
-
-    // console.log(tasks);
   };
-  console.log(tasks);
+
   return (
     <>
       <div className="flex justify-center">

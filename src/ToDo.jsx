@@ -5,7 +5,7 @@ import { IoMdDoneAll } from "react-icons/io";
 const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
   return (
     <div className="flex p-1 border-2 mt-2 justify-between ">
-      <div>{task}</div>
+      <div className={`${completed ? "line-through" : ""}`}>{task}</div>
       <div className="flex items-center">
         <button
           className="ml-5"
@@ -15,6 +15,7 @@ const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
         >
           <IoMdDoneAll />
         </button>
+
         <button
           className="ml-5"
           onClick={() => {
