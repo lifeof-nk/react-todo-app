@@ -22,16 +22,29 @@ const App = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
-  const handleIsComplete = (id, completed) => {
-    setTasks(
-      tasks.map((task) => {
-        if (task.id === id) {
-          return { ...task, completed: !completed };
-        } else {
-          return task;
-        }
-      })
-    );
+  // const handleIsComplete = (id) => {
+  //   setTasks(
+  //     tasks.map((task) => {
+  //       if (task.id === id) {
+  //         return { ...task, completed: !task.completed };
+  //       } else {
+  //         return task;
+  //       }
+  //     })
+  //   );
+  // };
+
+  const toggleComplete = (id) => {
+    const taskIndex = tasks.findIndex((task) => task.id === id);
+
+    if (taskIndex !== -1) {
+      const prevTasks = [...tasks];
+      prevTasks[taskIndex] = {
+        ...prevTasks[taskIndex],
+        completed: !prevTasks[taskIndex].completed,
+      };
+      setTasks(prevTasks);
+    }
   };
 
   return (
@@ -48,7 +61,7 @@ const App = () => {
                 task={task.task}
                 completed={task.completed}
                 onDeleteTask={handleDeleteTask}
-                onComplete={handleIsComplete}
+                onComplete={toggleComplete}
               />
             ))}
           </div>

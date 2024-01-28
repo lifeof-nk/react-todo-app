@@ -10,7 +10,7 @@ const ToDo = ({ task, onDeleteTask, id, completed, onComplete }) => {
         <button
           className="ml-5"
           onClick={() => {
-            onComplete(id, completed);
+            onComplete(id);
           }}
         >
           <IoMdDoneAll />
