@@ -19,7 +19,7 @@ const App = () => {
 
   const handleDeleteTask = (id) => {
     console.log("deleting task with id", id);
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
 
   // const handleIsComplete = (id) => {
