@@ -14,7 +14,7 @@ const App = () => {
     };
 
     setTasks([toDo, ...tasks]);
-    console.log("New task added: ", task);
+    // console.log("New task added: ", task);
   };
 
   const handleDeleteTask = (id) => {
@@ -46,6 +46,8 @@ const App = () => {
       setTasks(prevTasks);
     }
   };
+
+  // console.log(tasks);
 
   return (
     <>
